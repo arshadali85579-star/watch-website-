@@ -22,7 +22,7 @@ echo.
 REM --- 1. Check Git ---
 echo [1/6] Checking system environment...
 where git >nul 2>&1
-if %ERRORLEVEL% NEQ 0 (
+if errorlevel 1 (
     color 0C
     echo [ERROR] Git is not installed or not in PATH.
     echo Please install Git from https://git-scm.com/downloads
@@ -32,7 +32,7 @@ for /f "tokens=*" %%v in ('git --version 2^>nul') do set "GIT_VER=%%v"
 echo       [OK] Git: !GIT_VER!
 
 where node >nul 2>&1
-if %ERRORLEVEL% EQU 0 (
+if not errorlevel 1 (
     for /f "tokens=*" %%n in ('node -v 2^>nul') do set "NODE_VER=%%n"
     echo       [OK] Node: !NODE_VER!
 )
@@ -53,7 +53,7 @@ echo [3/6] Inspecting Git repository status...
 if not exist ".git" (
     echo       Initializing local Git repository...
     git init
-    if %ERRORLEVEL% NEQ 0 (
+    if !ERRORLEVEL! NEQ 0 (
         color 0C
         echo [ERROR] Failed to run git init.
         goto FINISH
@@ -78,7 +78,7 @@ for /f "tokens=*" %%r in ('git remote get-url origin 2^>nul') do (
 if "!EXISTING_REMOTE!"=="" (
     echo       Adding remote origin: !TARGET_REMOTE!
     git remote add origin !TARGET_REMOTE!
-    if %ERRORLEVEL% NEQ 0 (
+    if !ERRORLEVEL! NEQ 0 (
         color 0C
         echo [ERROR] Failed to add remote origin.
         goto FINISH
@@ -94,8 +94,8 @@ echo [5/6] Staging files and creating commit...
 git add -A
 
 git diff --cached --quiet
-if %ERRORLEVEL% EQU 0 (
-    echo       [INFO] Working tree is clean. No new file modifications to commit.
+if !ERRORLEVEL! EQU 0 (
+    echo       [INFO] Working tree is clean. No new changes to commit.
 ) else (
     echo       Staged changes detected.
     set "DEFAULT_MSG=Update ORA SWISS luxury website"
@@ -106,7 +106,7 @@ if %ERRORLEVEL% EQU 0 (
     if "!USER_MSG!"=="" set "USER_MSG=!DEFAULT_MSG!"
 
     git commit -m "!USER_MSG!"
-    if %ERRORLEVEL% NEQ 0 (
+    if !ERRORLEVEL! NEQ 0 (
         color 0C
         echo [ERROR] Git commit failed.
         goto FINISH
@@ -124,7 +124,7 @@ echo.
 
 git push -u origin main
 
-if %ERRORLEVEL% EQU 0 (
+if !ERRORLEVEL! EQU 0 (
     color 0A
     echo.
     echo ============================================================================
