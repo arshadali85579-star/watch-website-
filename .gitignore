@@ -1,0 +1,52 @@
+# Dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# Production build artifacts
+dist/
+build/
+.output/
+
+# Environment and sensitive variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# Large binaries & media tools
+ffmpeg.exe
+ffmpeg
+*.mp4
+*.mov
+*.avi
+*.mkv
+
+# Archives & Temporary files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+ora-swiss-project.zip
+extracted_analysis_frames/
+
+# System and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
