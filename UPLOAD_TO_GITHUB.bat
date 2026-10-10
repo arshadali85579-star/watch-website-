@@ -58,5 +58,5 @@ if !ERRORLEVEL! EQU 0 (
 )
 
 echo.
-echo Window will close in 5 seconds (or press any key now)...
-timeout /t 5 >nul
+echo Press any key to exit...
+pause >nul
