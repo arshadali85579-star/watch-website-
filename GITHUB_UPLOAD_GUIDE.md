@@ -14,7 +14,7 @@ This project includes an automated Windows script: **`UPLOAD_TO_GITHUB.bat`**.
    - Confirm you are in the correct project directory (`package.json`).
    - Initialize the Git repository (if not already initialized).
    - Set the branch to `main`.
-   - Link the remote repository: `https://github.com/sydmehedi/-ORA-SWISS-GENEVA.git`.
+   - Link the remote repository: `https://github.com/arshadali85579-star/watch-website-.git`.
    - Stage all source code files (respecting `.gitignore`).
    - Create a commit (you can press **Enter** to accept the default message or type a custom note).
    - Push your code directly to GitHub.

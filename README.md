@@ -29,8 +29,8 @@
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/sydmehedi/-ORA-SWISS-GENEVA.git
-cd -ORA-SWISS-GENEVA
+git clone https://github.com/arshadali85579-star/watch-website-.git
+cd watch-website-
 ```
 
 ### 2. Install dependencies
